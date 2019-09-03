@@ -1,9 +1,11 @@
-FROM alpine:edge
+FROM alpine:latest
 
 # Get some buildtime depdencenceis, like terraform and aws-cli
-COPY ./install_deps.sh ./install_deps.sh
+COPY install_deps.sh ./
 RUN ./install_deps.sh
 
-WORKDIR /usr/
+WORKDIR /opt/terra-astra/src/
 
-COPY ./ ./
+COPY cli.sh buildstore deployment ./
+
+ENTRYPOINT [ "./cli.sh" ]
