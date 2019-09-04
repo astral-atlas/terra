@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-# Get some buildtime depdencenceis, like terraform and aws-cli
+# Get some buildtime dependencies, like terraform and aws-cli
 COPY install_deps.sh ./
 RUN ./install_deps.sh
 
